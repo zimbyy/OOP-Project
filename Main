@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        StoryLine objStoryLine = new StoryLine();
+        ThirdStreet objThirdStreet = new ThirdStreet();
+
+        System.out.println("\t\t\t==============================================================");
+        System.out.print("\t\t\t||            Welcome to No Way Out: The Final Test.        ||\n");
+        System.out.println("\t\t\t==============================================================\n\n");
+
+        while (true) {
+            System.out.print("\t\t\t\tDo you want to enter the game? (Yes/No): ");
+            String option = scan.nextLine();
+
+            if (option.equalsIgnoreCase("Yes")) {
+                while (true) {
+                System.out.print("\t\t\t\tDo you want to skip the storyline? (Yes/No): ");
+                String optionStoryLine = scan.nextLine();
+                    if (optionStoryLine.equalsIgnoreCase("Yes")) {
+                        objStoryLine.questOne();
+                        objThirdStreet.enter(); 
+                    }else if (optionStoryLine.equalsIgnoreCase("No")) {
+                        objStoryLine.prologue();
+                        objStoryLine.questOne();
+                        objThirdStreet.enter();
+                    }else {
+                        System.out.println("Invalid Input. Enter either YES/NO only.\n");
+                    }
+                }
+            } else if (option.equalsIgnoreCase("No")) {
+                System.out.print("\t\t\t\tI WILL ALWAYS FIND MY WAY BACK TO YOU");
+                break;
+            } else {
+                System.out.println("Invalid Input. Enter either YES/NO only.\n");
+            }
+        }
+        scan.close();
+    }
+}
